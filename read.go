@@ -1,9 +1,9 @@
 package env
 
-import(
+import (
+	"bufio"
 	"os"
 	"strings"
-	"bufio"
 )
 
 func _read(name string) (map[string]string, error) {
@@ -22,13 +22,13 @@ func _read(name string) (map[string]string, error) {
 		if strings.HasPrefix(line, "#") || strings.HasPrefix(line, "//") {
 			continue
 		}
-		keyVal := strings.Split(line, "=")
+		keyVal := strings.SplitN(line, "=", 2)
 		if len(keyVal) != 2 {
 			continue
 		}
 		key := strings.TrimSpace(keyVal[0])
 		val := strings.TrimSpace(keyVal[1])
-		vars[key]=val
+		vars[key] = val
 	}
 	if err := scanner.Err(); err != nil {
 		return map[string]string{}, err

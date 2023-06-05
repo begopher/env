@@ -1,6 +1,6 @@
 package env
 
-import(
+import (
 	"os"
 )
 
@@ -10,7 +10,7 @@ func File(name string) (Vars, error) {
 }
 
 type _file struct {
-	vars map[string] string
+	vars map[string]string
 }
 
 func (f _file) Get(key string) string {

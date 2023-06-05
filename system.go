@@ -1,7 +1,6 @@
 package env
 
-
-import(
+import (
 	"os"
 )
 
@@ -11,7 +10,7 @@ func System(file string) (Vars, error) {
 }
 
 type _system struct {
-	vars map[string] string
+	vars map[string]string
 }
 
 func (s _system) Get(key string) string {
